@@ -30,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
  * AdsProceedingDTO
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-01T15:16:31.615068100+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-01T16:33:15.699958100+03:00[Europe/Helsinki]")
 public class AdsProceedingDTO {
   /**
    * Gets or Sets result
