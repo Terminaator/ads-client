@@ -30,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
  * AdsProceedingDTO
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-01T16:33:15.699958100+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-01T17:04:49.150651600+03:00[Europe/Helsinki]")
 public class AdsProceedingDTO {
   /**
    * Gets or Sets result
@@ -39,6 +39,8 @@ public class AdsProceedingDTO {
   public enum ResultEnum {
     ADS_TASK_FAILED("ADS_TASK_FAILED"),
     EHR_TASK_FAILED("EHR_TASK_FAILED"),
+    ADS_TASK_CANCELED("ADS_TASK_CANCELED"),
+    ADS_TASK_IN_CHECK("ADS_TASK_IN_CHECK"),
     ADS_TASK_SUCCEEDED("ADS_TASK_SUCCEEDED");
 
     private String value;
