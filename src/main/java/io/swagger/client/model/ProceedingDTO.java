@@ -19,33 +19,55 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.BuildingDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * BuildingDTO
+ * ProceedingDTO
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-02T14:22:54.670916200+03:00[Europe/Helsinki]")
-public class BuildingDTO {
-  @SerializedName("buildingId")
-  private Long buildingId = null;
+public class ProceedingDTO {
+  @SerializedName("id")
+  private Integer id = null;
 
-  public BuildingDTO buildingId(Long buildingId) {
-    this.buildingId = buildingId;
+  @SerializedName("building")
+  private BuildingDTO building = null;
+
+  public ProceedingDTO id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
    * Unique identifier of the Contact.
-   * @return buildingId
+   * @return id
   **/
-  @Schema(example = "1", required = true, description = "Unique identifier of the Contact.")
-  public Long getBuildingId() {
-    return buildingId;
+  @Schema(example = "1", description = "Unique identifier of the Contact.")
+  public Integer getId() {
+    return id;
   }
 
-  public void setBuildingId(Long buildingId) {
-    this.buildingId = buildingId;
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public ProceedingDTO building(BuildingDTO building) {
+    this.building = building;
+    return this;
+  }
+
+   /**
+   * Get building
+   * @return building
+  **/
+  @Schema(description = "")
+  public BuildingDTO getBuilding() {
+    return building;
+  }
+
+  public void setBuilding(BuildingDTO building) {
+    this.building = building;
   }
 
 
@@ -57,22 +79,24 @@ public class BuildingDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BuildingDTO buildingDTO = (BuildingDTO) o;
-    return Objects.equals(this.buildingId, buildingDTO.buildingId);
+    ProceedingDTO proceedingDTO = (ProceedingDTO) o;
+    return Objects.equals(this.id, proceedingDTO.id) &&
+        Objects.equals(this.building, proceedingDTO.building);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buildingId);
+    return Objects.hash(id, building);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BuildingDTO {\n");
+    sb.append("class ProceedingDTO {\n");
     
-    sb.append("    buildingId: ").append(toIndentedString(buildingId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    building: ").append(toIndentedString(building)).append("\n");
     sb.append("}");
     return sb.toString();
   }

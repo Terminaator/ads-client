@@ -16,6 +16,7 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.AdsProceedingsDTO;
 import io.swagger.client.model.AdsXmlRequestDTO;
 import io.swagger.client.model.BuildingDTO;
+import io.swagger.client.model.CheckOperationDTO;
 import io.swagger.client.model.OperationDTO;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -46,6 +47,37 @@ public class AdsMenetlusApiTest {
         OperationDTO body = null;
         String adsType = null;
         AdsProceedingsDTO response = api.check(body, adsType);
+
+        // TODO: test validations
+    }
+    /**
+     * ADS menetluse kontrollimine
+     *
+     * Esitab ADS&#x27;i ADS menetluse numbri. Positiivse vastuse korral andmed salvestatakse baasi.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void checkProceedingTest() throws ApiException {
+        CheckOperationDTO body = null;
+        AdsProceedingsDTO response = api.checkProceeding(body);
+
+        // TODO: test validations
+    }
+    /**
+     * ADS esitamine (DELETE, SEND, DELETE, RESTORE)
+     *
+     * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. Positiivse vastuse korral uuendakse ehitise andmeid. ADS ADSmenadresit päringus on kontrolli väär.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void sendTest() throws ApiException {
+        OperationDTO body = null;
+        String adsType = null;
+        AdsProceedingsDTO response = api.send(body, adsType);
 
         // TODO: test validations
     }

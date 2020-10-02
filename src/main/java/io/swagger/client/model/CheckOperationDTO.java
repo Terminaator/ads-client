@@ -19,27 +19,27 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.BuildingDTO;
+import io.swagger.client.model.ProceedingDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * OperationDTO
+ * CheckOperationDTO
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-02T14:22:54.670916200+03:00[Europe/Helsinki]")
-public class OperationDTO {
+public class CheckOperationDTO {
   @SerializedName("conductorName")
   private String conductorName = null;
 
   @SerializedName("conductorCode")
   private String conductorCode = null;
 
-  @SerializedName("buildings")
-  private List<BuildingDTO> buildings = null;
+  @SerializedName("proceedings")
+  private List<ProceedingDTO> proceedings = null;
 
-  public OperationDTO conductorName(String conductorName) {
+  public CheckOperationDTO conductorName(String conductorName) {
     this.conductorName = conductorName;
     return this;
   }
@@ -57,7 +57,7 @@ public class OperationDTO {
     this.conductorName = conductorName;
   }
 
-  public OperationDTO conductorCode(String conductorCode) {
+  public CheckOperationDTO conductorCode(String conductorCode) {
     this.conductorCode = conductorCode;
     return this;
   }
@@ -75,30 +75,30 @@ public class OperationDTO {
     this.conductorCode = conductorCode;
   }
 
-  public OperationDTO buildings(List<BuildingDTO> buildings) {
-    this.buildings = buildings;
+  public CheckOperationDTO proceedings(List<ProceedingDTO> proceedings) {
+    this.proceedings = proceedings;
     return this;
   }
 
-  public OperationDTO addBuildingsItem(BuildingDTO buildingsItem) {
-    if (this.buildings == null) {
-      this.buildings = new ArrayList<BuildingDTO>();
+  public CheckOperationDTO addProceedingsItem(ProceedingDTO proceedingsItem) {
+    if (this.proceedings == null) {
+      this.proceedings = new ArrayList<ProceedingDTO>();
     }
-    this.buildings.add(buildingsItem);
+    this.proceedings.add(proceedingsItem);
     return this;
   }
 
    /**
-   * Get buildings
-   * @return buildings
+   * Get proceedings
+   * @return proceedings
   **/
   @Schema(description = "")
-  public List<BuildingDTO> getBuildings() {
-    return buildings;
+  public List<ProceedingDTO> getProceedings() {
+    return proceedings;
   }
 
-  public void setBuildings(List<BuildingDTO> buildings) {
-    this.buildings = buildings;
+  public void setProceedings(List<ProceedingDTO> proceedings) {
+    this.proceedings = proceedings;
   }
 
 
@@ -110,26 +110,26 @@ public class OperationDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OperationDTO operationDTO = (OperationDTO) o;
-    return Objects.equals(this.conductorName, operationDTO.conductorName) &&
-        Objects.equals(this.conductorCode, operationDTO.conductorCode) &&
-        Objects.equals(this.buildings, operationDTO.buildings);
+    CheckOperationDTO checkOperationDTO = (CheckOperationDTO) o;
+    return Objects.equals(this.conductorName, checkOperationDTO.conductorName) &&
+        Objects.equals(this.conductorCode, checkOperationDTO.conductorCode) &&
+        Objects.equals(this.proceedings, checkOperationDTO.proceedings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conductorName, conductorCode, buildings);
+    return Objects.hash(conductorName, conductorCode, proceedings);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OperationDTO {\n");
+    sb.append("class CheckOperationDTO {\n");
     
     sb.append("    conductorName: ").append(toIndentedString(conductorName)).append("\n");
     sb.append("    conductorCode: ").append(toIndentedString(conductorCode)).append("\n");
-    sb.append("    buildings: ").append(toIndentedString(buildings)).append("\n");
+    sb.append("    proceedings: ").append(toIndentedString(proceedings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

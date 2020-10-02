@@ -29,6 +29,7 @@ import java.io.IOException;
 import io.swagger.client.model.AdsProceedingsDTO;
 import io.swagger.client.model.AdsXmlRequestDTO;
 import io.swagger.client.model.BuildingDTO;
+import io.swagger.client.model.CheckOperationDTO;
 import io.swagger.client.model.OperationDTO;
 
 import java.lang.reflect.Type;
@@ -58,7 +59,7 @@ public class AdsMenetlusApi {
 
     /**
      * Build call for check
-     * @param body  (required)
+     * @param body xml päringu JSON keha (required)
      * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -130,7 +131,7 @@ public class AdsMenetlusApi {
     /**
      * ADS kontroll esitamine (DELETE, SEND, DELETE, RESTORE)
      * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. ADS ADSmenadresit päringus on kontrolli tõene.
-     * @param body  (required)
+     * @param body xml päringu JSON keha (required)
      * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
      * @return AdsProceedingsDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,7 +144,7 @@ public class AdsMenetlusApi {
     /**
      * ADS kontroll esitamine (DELETE, SEND, DELETE, RESTORE)
      * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. ADS ADSmenadresit päringus on kontrolli tõene.
-     * @param body  (required)
+     * @param body xml päringu JSON keha (required)
      * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
      * @return ApiResponse&lt;AdsProceedingsDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,7 +158,7 @@ public class AdsMenetlusApi {
     /**
      * ADS kontroll esitamine (DELETE, SEND, DELETE, RESTORE) (asynchronously)
      * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. ADS ADSmenadresit päringus on kontrolli tõene.
-     * @param body  (required)
+     * @param body xml päringu JSON keha (required)
      * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -185,6 +186,263 @@ public class AdsMenetlusApi {
         }
 
         com.squareup.okhttp.Call call = checkValidateBeforeCall(body, adsType, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AdsProceedingsDTO>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for checkProceeding
+     * @param body xml päringu JSON keha (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call checkProceedingCall(CheckOperationDTO body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/proceeding/check";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call checkProceedingValidateBeforeCall(CheckOperationDTO body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling checkProceeding(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = checkProceedingCall(body, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * ADS menetluse kontrollimine
+     * Esitab ADS&#x27;i ADS menetluse numbri. Positiivse vastuse korral andmed salvestatakse baasi.
+     * @param body xml päringu JSON keha (required)
+     * @return AdsProceedingsDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AdsProceedingsDTO checkProceeding(CheckOperationDTO body) throws ApiException {
+        ApiResponse<AdsProceedingsDTO> resp = checkProceedingWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * ADS menetluse kontrollimine
+     * Esitab ADS&#x27;i ADS menetluse numbri. Positiivse vastuse korral andmed salvestatakse baasi.
+     * @param body xml päringu JSON keha (required)
+     * @return ApiResponse&lt;AdsProceedingsDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AdsProceedingsDTO> checkProceedingWithHttpInfo(CheckOperationDTO body) throws ApiException {
+        com.squareup.okhttp.Call call = checkProceedingValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<AdsProceedingsDTO>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * ADS menetluse kontrollimine (asynchronously)
+     * Esitab ADS&#x27;i ADS menetluse numbri. Positiivse vastuse korral andmed salvestatakse baasi.
+     * @param body xml päringu JSON keha (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call checkProceedingAsync(CheckOperationDTO body, final ApiCallback<AdsProceedingsDTO> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = checkProceedingValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AdsProceedingsDTO>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for send
+     * @param body xml päringu JSON keha (required)
+     * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sendCall(OperationDTO body, String adsType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+        
+        // create path and map variables
+        String localVarPath = "/proceeding/{adsType}"
+            .replaceAll("\\{" + "adsType" + "\\}", apiClient.escapeString(adsType.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sendValidateBeforeCall(OperationDTO body, String adsType, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling send(Async)");
+        }
+        // verify the required parameter 'adsType' is set
+        if (adsType == null) {
+            throw new ApiException("Missing the required parameter 'adsType' when calling send(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = sendCall(body, adsType, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * ADS esitamine (DELETE, SEND, DELETE, RESTORE)
+     * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. Positiivse vastuse korral uuendakse ehitise andmeid. ADS ADSmenadresit päringus on kontrolli väär.
+     * @param body xml päringu JSON keha (required)
+     * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
+     * @return AdsProceedingsDTO
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AdsProceedingsDTO send(OperationDTO body, String adsType) throws ApiException {
+        ApiResponse<AdsProceedingsDTO> resp = sendWithHttpInfo(body, adsType);
+        return resp.getData();
+    }
+
+    /**
+     * ADS esitamine (DELETE, SEND, DELETE, RESTORE)
+     * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. Positiivse vastuse korral uuendakse ehitise andmeid. ADS ADSmenadresit päringus on kontrolli väär.
+     * @param body xml päringu JSON keha (required)
+     * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
+     * @return ApiResponse&lt;AdsProceedingsDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AdsProceedingsDTO> sendWithHttpInfo(OperationDTO body, String adsType) throws ApiException {
+        com.squareup.okhttp.Call call = sendValidateBeforeCall(body, adsType, null, null);
+        Type localVarReturnType = new TypeToken<AdsProceedingsDTO>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * ADS esitamine (DELETE, SEND, DELETE, RESTORE) (asynchronously)
+     * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. Positiivse vastuse korral uuendakse ehitise andmeid. ADS ADSmenadresit päringus on kontrolli väär.
+     * @param body xml päringu JSON keha (required)
+     * @param adsType Määrab ADS tegevuse liigi (DELETE, SEND, RESTORE, CANCEL). ADS tegevuse all mõeldakse, et kuidas API korjab andmed kokku. (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sendAsync(OperationDTO body, String adsType, final ApiCallback<AdsProceedingsDTO> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sendValidateBeforeCall(body, adsType, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<AdsProceedingsDTO>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
