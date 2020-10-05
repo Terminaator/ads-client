@@ -17,6 +17,7 @@ import io.swagger.client.model.AdsProceedingsDTO;
 import io.swagger.client.model.AdsXmlRequestDTO;
 import io.swagger.client.model.BuildingDTO;
 import io.swagger.client.model.CheckOperationDTO;
+import io.swagger.client.model.NecessityDTO;
 import io.swagger.client.model.OperationDTO;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -62,6 +63,22 @@ public class AdsMenetlusApiTest {
     public void checkProceedingTest() throws ApiException {
         CheckOperationDTO body = null;
         AdsProceedingsDTO response = api.checkProceeding(body);
+
+        // TODO: test validations
+    }
+    /**
+     * 
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void isNeededTest() throws ApiException {
+        List<BuildingDTO> body = null;
+        String adsType = null;
+        List<NecessityDTO> response = api.isNeeded(body, adsType);
 
         // TODO: test validations
     }

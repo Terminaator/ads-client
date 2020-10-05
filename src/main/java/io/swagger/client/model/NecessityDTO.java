@@ -19,55 +19,54 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.BuildingDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * ProceedingDTO
+ * NecessityDTO
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-05T12:46:40.910754800+03:00[Europe/Helsinki]")
-public class ProceedingDTO {
-  @SerializedName("id")
-  private Integer id = null;
+public class NecessityDTO {
+  @SerializedName("needed")
+  private Boolean needed = null;
 
-  @SerializedName("building")
-  private BuildingDTO building = null;
+  @SerializedName("buildingId")
+  private Long buildingId = null;
 
-  public ProceedingDTO id(Integer id) {
-    this.id = id;
+  public NecessityDTO needed(Boolean needed) {
+    this.needed = needed;
     return this;
   }
 
    /**
-   * Unique identifier of the Contact.
-   * @return id
-  **/
-  @Schema(example = "1", description = "Unique identifier of the Contact.")
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public ProceedingDTO building(BuildingDTO building) {
-    this.building = building;
-    return this;
-  }
-
-   /**
-   * Get building
-   * @return building
+   * Get needed
+   * @return needed
   **/
   @Schema(description = "")
-  public BuildingDTO getBuilding() {
-    return building;
+  public Boolean isNeeded() {
+    return needed;
   }
 
-  public void setBuilding(BuildingDTO building) {
-    this.building = building;
+  public void setNeeded(Boolean needed) {
+    this.needed = needed;
+  }
+
+  public NecessityDTO buildingId(Long buildingId) {
+    this.buildingId = buildingId;
+    return this;
+  }
+
+   /**
+   * Get buildingId
+   * @return buildingId
+  **/
+  @Schema(description = "")
+  public Long getBuildingId() {
+    return buildingId;
+  }
+
+  public void setBuildingId(Long buildingId) {
+    this.buildingId = buildingId;
   }
 
 
@@ -79,24 +78,24 @@ public class ProceedingDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProceedingDTO proceedingDTO = (ProceedingDTO) o;
-    return Objects.equals(this.id, proceedingDTO.id) &&
-        Objects.equals(this.building, proceedingDTO.building);
+    NecessityDTO necessityDTO = (NecessityDTO) o;
+    return Objects.equals(this.needed, necessityDTO.needed) &&
+        Objects.equals(this.buildingId, necessityDTO.buildingId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, building);
+    return Objects.hash(needed, buildingId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProceedingDTO {\n");
+    sb.append("class NecessityDTO {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    building: ").append(toIndentedString(building)).append("\n");
+    sb.append("    needed: ").append(toIndentedString(needed)).append("\n");
+    sb.append("    buildingId: ").append(toIndentedString(buildingId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
