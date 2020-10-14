@@ -1,7 +1,7 @@
-# ProceedingDTO
+# AdsNecessityDTO
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**adsProceedingNumber** | **Integer** |  | 
-**buildingId** | **Long** |  | 
+**buildingId** | **Long** |  |  [optional]
+**necessary** | **Boolean** |  |  [optional]

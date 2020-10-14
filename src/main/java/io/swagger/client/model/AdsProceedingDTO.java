@@ -19,8 +19,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.AdsProceedingObject;
-import io.swagger.client.model.AdsProceedingXmlDTO;
+import io.swagger.client.model.AdsProceedingObjectDTO;
+import io.swagger.client.model.AdsXmlDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import org.threeten.bp.OffsetDateTime;
  * AdsProceedingDTO
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-05T12:46:40.910754800+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-14T13:36:08.403514+03:00[Europe/Helsinki]")
 public class AdsProceedingDTO {
   /**
    * Gets or Sets result
@@ -92,10 +92,10 @@ public class AdsProceedingDTO {
   private Integer adsProcedureNr = null;
 
   @SerializedName("objects")
-  private List<AdsProceedingObject> objects = null;
+  private List<AdsProceedingObjectDTO> objects = null;
 
   @SerializedName("xml")
-  private AdsProceedingXmlDTO xml = null;
+  private AdsXmlDTO xml = null;
 
   public AdsProceedingDTO result(ResultEnum result) {
     this.result = result;
@@ -187,14 +187,14 @@ public class AdsProceedingDTO {
     this.adsProcedureNr = adsProcedureNr;
   }
 
-  public AdsProceedingDTO objects(List<AdsProceedingObject> objects) {
+  public AdsProceedingDTO objects(List<AdsProceedingObjectDTO> objects) {
     this.objects = objects;
     return this;
   }
 
-  public AdsProceedingDTO addObjectsItem(AdsProceedingObject objectsItem) {
+  public AdsProceedingDTO addObjectsItem(AdsProceedingObjectDTO objectsItem) {
     if (this.objects == null) {
-      this.objects = new ArrayList<AdsProceedingObject>();
+      this.objects = new ArrayList<AdsProceedingObjectDTO>();
     }
     this.objects.add(objectsItem);
     return this;
@@ -205,15 +205,15 @@ public class AdsProceedingDTO {
    * @return objects
   **/
   @Schema(description = "")
-  public List<AdsProceedingObject> getObjects() {
+  public List<AdsProceedingObjectDTO> getObjects() {
     return objects;
   }
 
-  public void setObjects(List<AdsProceedingObject> objects) {
+  public void setObjects(List<AdsProceedingObjectDTO> objects) {
     this.objects = objects;
   }
 
-  public AdsProceedingDTO xml(AdsProceedingXmlDTO xml) {
+  public AdsProceedingDTO xml(AdsXmlDTO xml) {
     this.xml = xml;
     return this;
   }
@@ -223,11 +223,11 @@ public class AdsProceedingDTO {
    * @return xml
   **/
   @Schema(description = "")
-  public AdsProceedingXmlDTO getXml() {
+  public AdsXmlDTO getXml() {
     return xml;
   }
 
-  public void setXml(AdsProceedingXmlDTO xml) {
+  public void setXml(AdsXmlDTO xml) {
     this.xml = xml;
   }
 

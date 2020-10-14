@@ -19,36 +19,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.client.model.ProceedingDTO;
+import io.swagger.client.model.BuildingDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * CheckOperationDTO
+ * BuildingsDTO
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-05T12:46:40.910754800+03:00[Europe/Helsinki]")
-public class CheckOperationDTO {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-14T13:36:08.403514+03:00[Europe/Helsinki]")
+public class BuildingsDTO {
   @SerializedName("conductorName")
   private String conductorName = null;
 
   @SerializedName("conductorCode")
   private String conductorCode = null;
 
-  @SerializedName("proceedings")
-  private List<ProceedingDTO> proceedings = null;
+  @SerializedName("buildings")
+  private List<BuildingDTO> buildings = new ArrayList<BuildingDTO>();
 
-  public CheckOperationDTO conductorName(String conductorName) {
+  public BuildingsDTO conductorName(String conductorName) {
     this.conductorName = conductorName;
     return this;
   }
 
    /**
-   * Unique identifier of the Contact.
+   * Get conductorName
    * @return conductorName
   **/
-  @Schema(example = "1", description = "Unique identifier of the Contact.")
+  @Schema(required = true, description = "")
   public String getConductorName() {
     return conductorName;
   }
@@ -57,16 +57,16 @@ public class CheckOperationDTO {
     this.conductorName = conductorName;
   }
 
-  public CheckOperationDTO conductorCode(String conductorCode) {
+  public BuildingsDTO conductorCode(String conductorCode) {
     this.conductorCode = conductorCode;
     return this;
   }
 
    /**
-   * Unique identifier of the Contact.
+   * Get conductorCode
    * @return conductorCode
   **/
-  @Schema(example = "1", description = "Unique identifier of the Contact.")
+  @Schema(required = true, description = "")
   public String getConductorCode() {
     return conductorCode;
   }
@@ -75,30 +75,27 @@ public class CheckOperationDTO {
     this.conductorCode = conductorCode;
   }
 
-  public CheckOperationDTO proceedings(List<ProceedingDTO> proceedings) {
-    this.proceedings = proceedings;
+  public BuildingsDTO buildings(List<BuildingDTO> buildings) {
+    this.buildings = buildings;
     return this;
   }
 
-  public CheckOperationDTO addProceedingsItem(ProceedingDTO proceedingsItem) {
-    if (this.proceedings == null) {
-      this.proceedings = new ArrayList<ProceedingDTO>();
-    }
-    this.proceedings.add(proceedingsItem);
+  public BuildingsDTO addBuildingsItem(BuildingDTO buildingsItem) {
+    this.buildings.add(buildingsItem);
     return this;
   }
 
    /**
-   * Get proceedings
-   * @return proceedings
+   * Get buildings
+   * @return buildings
   **/
-  @Schema(description = "")
-  public List<ProceedingDTO> getProceedings() {
-    return proceedings;
+  @Schema(required = true, description = "")
+  public List<BuildingDTO> getBuildings() {
+    return buildings;
   }
 
-  public void setProceedings(List<ProceedingDTO> proceedings) {
-    this.proceedings = proceedings;
+  public void setBuildings(List<BuildingDTO> buildings) {
+    this.buildings = buildings;
   }
 
 
@@ -110,26 +107,26 @@ public class CheckOperationDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckOperationDTO checkOperationDTO = (CheckOperationDTO) o;
-    return Objects.equals(this.conductorName, checkOperationDTO.conductorName) &&
-        Objects.equals(this.conductorCode, checkOperationDTO.conductorCode) &&
-        Objects.equals(this.proceedings, checkOperationDTO.proceedings);
+    BuildingsDTO buildingsDTO = (BuildingsDTO) o;
+    return Objects.equals(this.conductorName, buildingsDTO.conductorName) &&
+        Objects.equals(this.conductorCode, buildingsDTO.conductorCode) &&
+        Objects.equals(this.buildings, buildingsDTO.buildings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conductorName, conductorCode, proceedings);
+    return Objects.hash(conductorName, conductorCode, buildings);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckOperationDTO {\n");
+    sb.append("class BuildingsDTO {\n");
     
     sb.append("    conductorName: ").append(toIndentedString(conductorName)).append("\n");
     sb.append("    conductorCode: ").append(toIndentedString(conductorCode)).append("\n");
-    sb.append("    proceedings: ").append(toIndentedString(proceedings)).append("\n");
+    sb.append("    buildings: ").append(toIndentedString(buildings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

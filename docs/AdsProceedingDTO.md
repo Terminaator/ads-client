@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **notice** | **String** |  |  [optional]
 **enacted** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **adsProcedureNr** | **Integer** |  |  [optional]
-**objects** | [**List&lt;AdsProceedingObject&gt;**](AdsProceedingObject.md) |  |  [optional]
-**xml** | [**AdsProceedingXmlDTO**](AdsProceedingXmlDTO.md) |  |  [optional]
+**objects** | [**List&lt;AdsProceedingObjectDTO&gt;**](AdsProceedingObjectDTO.md) |  |  [optional]
+**xml** | [**AdsXmlDTO**](AdsXmlDTO.md) |  |  [optional]
 
 <a name="ResultEnum"></a>
 ## Enum: ResultEnum

@@ -14,40 +14,12 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
 /**
- * BuildingDTO
+ * AdsRequestsXmlDTO
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-14T13:36:08.403514+03:00[Europe/Helsinki]")
-public class BuildingDTO {
-  @SerializedName("buildingId")
-  private Long buildingId = null;
-
-  public BuildingDTO buildingId(Long buildingId) {
-    this.buildingId = buildingId;
-    return this;
-  }
-
-   /**
-   * Get buildingId
-   * @return buildingId
-  **/
-  @Schema(required = true, description = "")
-  public Long getBuildingId() {
-    return buildingId;
-  }
-
-  public void setBuildingId(Long buildingId) {
-    this.buildingId = buildingId;
-  }
-
+public class AdsRequestsXmlDTO {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -57,22 +29,20 @@ public class BuildingDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BuildingDTO buildingDTO = (BuildingDTO) o;
-    return Objects.equals(this.buildingId, buildingDTO.buildingId);
+    return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(buildingId);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BuildingDTO {\n");
+    sb.append("class AdsRequestsXmlDTO {\n");
     
-    sb.append("    buildingId: ").append(toIndentedString(buildingId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

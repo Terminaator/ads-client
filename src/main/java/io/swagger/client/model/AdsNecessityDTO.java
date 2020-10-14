@@ -22,36 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * NecessityDTO
+ * AdsNecessityDTO
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-05T12:46:40.910754800+03:00[Europe/Helsinki]")
-public class NecessityDTO {
-  @SerializedName("needed")
-  private Boolean needed = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-14T13:36:08.403514+03:00[Europe/Helsinki]")
+public class AdsNecessityDTO {
   @SerializedName("buildingId")
   private Long buildingId = null;
 
-  public NecessityDTO needed(Boolean needed) {
-    this.needed = needed;
-    return this;
-  }
+  @SerializedName("necessary")
+  private Boolean necessary = null;
 
-   /**
-   * Get needed
-   * @return needed
-  **/
-  @Schema(description = "")
-  public Boolean isNeeded() {
-    return needed;
-  }
-
-  public void setNeeded(Boolean needed) {
-    this.needed = needed;
-  }
-
-  public NecessityDTO buildingId(Long buildingId) {
+  public AdsNecessityDTO buildingId(Long buildingId) {
     this.buildingId = buildingId;
     return this;
   }
@@ -69,6 +51,24 @@ public class NecessityDTO {
     this.buildingId = buildingId;
   }
 
+  public AdsNecessityDTO necessary(Boolean necessary) {
+    this.necessary = necessary;
+    return this;
+  }
+
+   /**
+   * Get necessary
+   * @return necessary
+  **/
+  @Schema(description = "")
+  public Boolean isNecessary() {
+    return necessary;
+  }
+
+  public void setNecessary(Boolean necessary) {
+    this.necessary = necessary;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -78,24 +78,24 @@ public class NecessityDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NecessityDTO necessityDTO = (NecessityDTO) o;
-    return Objects.equals(this.needed, necessityDTO.needed) &&
-        Objects.equals(this.buildingId, necessityDTO.buildingId);
+    AdsNecessityDTO adsNecessityDTO = (AdsNecessityDTO) o;
+    return Objects.equals(this.buildingId, adsNecessityDTO.buildingId) &&
+        Objects.equals(this.necessary, adsNecessityDTO.necessary);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(needed, buildingId);
+    return Objects.hash(buildingId, necessary);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NecessityDTO {\n");
+    sb.append("class AdsNecessityDTO {\n");
     
-    sb.append("    needed: ").append(toIndentedString(needed)).append("\n");
     sb.append("    buildingId: ").append(toIndentedString(buildingId)).append("\n");
+    sb.append("    necessary: ").append(toIndentedString(necessary)).append("\n");
     sb.append("}");
     return sb.toString();
   }

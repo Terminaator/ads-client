@@ -13,12 +13,12 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.AdsNecessitiesDTO;
 import io.swagger.client.model.AdsProceedingsDTO;
-import io.swagger.client.model.AdsXmlRequestDTO;
+import io.swagger.client.model.AdsRequestsXmlDTO;
 import io.swagger.client.model.BuildingDTO;
-import io.swagger.client.model.CheckOperationDTO;
-import io.swagger.client.model.NecessityDTO;
-import io.swagger.client.model.OperationDTO;
+import io.swagger.client.model.BuildingsDTO;
+import io.swagger.client.model.ProceedingsDTO;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -28,41 +28,41 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for AdsMenetlusApi
+ * API tests for AdsProceedingControllerApi
  */
 @Ignore
-public class AdsMenetlusApiTest {
+public class AdsProceedingControllerApiTest {
 
-    private final AdsMenetlusApi api = new AdsMenetlusApi();
+    private final AdsProceedingControllerApi api = new AdsProceedingControllerApi();
 
     /**
-     * ADS kontroll esitamine (DELETE, SEND, DELETE, RESTORE)
+     * 
      *
-     * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. ADS ADSmenadresit päringus on kontrolli tõene.
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void checkTest() throws ApiException {
-        OperationDTO body = null;
+        BuildingsDTO body = null;
         String adsType = null;
         AdsProceedingsDTO response = api.check(body, adsType);
 
         // TODO: test validations
     }
     /**
-     * ADS menetluse kontrollimine
+     * 
      *
-     * Esitab ADS&#x27;i ADS menetluse numbri. Positiivse vastuse korral andmed salvestatakse baasi.
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void checkProceedingTest() throws ApiException {
-        CheckOperationDTO body = null;
-        AdsProceedingsDTO response = api.checkProceeding(body);
+    public void checkAdsProceedingTest() throws ApiException {
+        ProceedingsDTO body = null;
+        AdsProceedingsDTO response = api.checkAdsProceeding(body);
 
         // TODO: test validations
     }
@@ -75,33 +75,33 @@ public class AdsMenetlusApiTest {
      *          if the Api call fails
      */
     @Test
-    public void isNeededTest() throws ApiException {
+    public void isNecessaryTest() throws ApiException {
         List<BuildingDTO> body = null;
         String adsType = null;
-        List<NecessityDTO> response = api.isNeeded(body, adsType);
+        AdsNecessitiesDTO response = api.isNecessary(body, adsType);
 
         // TODO: test validations
     }
     /**
-     * ADS esitamine (DELETE, SEND, DELETE, RESTORE)
+     * 
      *
-     * Esitab andmed ADS&#x27;i vastavalt tegevuse järgi. Positiivse vastuse korral uuendakse ehitise andmeid. ADS ADSmenadresit päringus on kontrolli väär.
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void sendTest() throws ApiException {
-        OperationDTO body = null;
+        BuildingsDTO body = null;
         String adsType = null;
         AdsProceedingsDTO response = api.send(body, adsType);
 
         // TODO: test validations
     }
     /**
-     * ADS päringu XML (DELETE, SEND, DELETE, RESTORE)
+     * 
      *
-     * Paneb kokku ADS päringu vastavalt tegevuse järgi ja tagastab kodeeringus xml stringi.
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -110,7 +110,7 @@ public class AdsMenetlusApiTest {
     public void xmlTest() throws ApiException {
         List<BuildingDTO> body = null;
         String adsType = null;
-        List<AdsXmlRequestDTO> response = api.xml(body, adsType);
+        AdsRequestsXmlDTO response = api.xml(body, adsType);
 
         // TODO: test validations
     }
