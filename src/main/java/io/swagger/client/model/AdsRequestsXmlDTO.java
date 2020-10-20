@@ -14,12 +14,51 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.AdsXmlDTO;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * AdsRequestsXmlDTO
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-14T13:36:08.403514+03:00[Europe/Helsinki]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2020-10-20T12:56:14.526351600+03:00[Europe/Helsinki]")
 public class AdsRequestsXmlDTO {
+  @SerializedName("xmls")
+  private List<AdsXmlDTO> xmls = null;
+
+  public AdsRequestsXmlDTO xmls(List<AdsXmlDTO> xmls) {
+    this.xmls = xmls;
+    return this;
+  }
+
+  public AdsRequestsXmlDTO addXmlsItem(AdsXmlDTO xmlsItem) {
+    if (this.xmls == null) {
+      this.xmls = new ArrayList<AdsXmlDTO>();
+    }
+    this.xmls.add(xmlsItem);
+    return this;
+  }
+
+   /**
+   * Get xmls
+   * @return xmls
+  **/
+  @Schema(description = "")
+  public List<AdsXmlDTO> getXmls() {
+    return xmls;
+  }
+
+  public void setXmls(List<AdsXmlDTO> xmls) {
+    this.xmls = xmls;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -29,12 +68,13 @@ public class AdsRequestsXmlDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    AdsRequestsXmlDTO adsRequestsXmlDTO = (AdsRequestsXmlDTO) o;
+    return Objects.equals(this.xmls, adsRequestsXmlDTO.xmls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(xmls);
   }
 
 
@@ -43,6 +83,7 @@ public class AdsRequestsXmlDTO {
     StringBuilder sb = new StringBuilder();
     sb.append("class AdsRequestsXmlDTO {\n");
     
+    sb.append("    xmls: ").append(toIndentedString(xmls)).append("\n");
     sb.append("}");
     return sb.toString();
   }
