@@ -1,7 +1,0 @@
-# ProceedingDTO
-
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**adsProceedingNumber** | **Integer** |  | 
-**buildingId** | **Long** |  | 
